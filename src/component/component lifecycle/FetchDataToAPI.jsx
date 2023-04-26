@@ -33,8 +33,6 @@ export default function FetchDataToAPI() {
   let jsx
   if (loading) {
     jsx = <h2>Loading</h2>
-  } else if (error != null) {
-    jsx = <h2>Error</h2>
   } else {
     jsx = JSON.stringify(users)
   }

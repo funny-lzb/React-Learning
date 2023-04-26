@@ -6,6 +6,7 @@ import ArrayState from './component/ArrayState'
 import CounterWithNameProject from './component/CounterWithNameProject'
 import { Child } from './component/component lifecycle/Child'
 import FetchDataToAPI from './component/component lifecycle/FetchDataToAPI'
+import RenderingLIst from './AdvancedComponent/RenderingLIst'
 import { useState } from 'react'
 
 function App() {
@@ -30,7 +31,8 @@ function App() {
         </button>
         {childComponent}
       </div> */}
-      <FetchDataToAPI />
+      {/* <FetchDataToAPI /> */}
+      <RenderingLIst />
     </>
   )
 }
