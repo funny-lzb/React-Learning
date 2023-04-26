@@ -4,8 +4,15 @@ import UserCard from './component/UserCard'
 import UseState from './component/UseState'
 import ArrayState from './component/ArrayState'
 import CounterWithNameProject from './component/CounterWithNameProject'
+import { Child } from './component/component lifecycle/Child'
+import FetchDataToAPI from './component/component lifecycle/FetchDataToAPI'
+import { useState } from 'react'
 
 function App() {
+  // const [show, setShow] = useState(true)
+
+  // const childComponent = show ? <Child /> : null
+
   return (
     <>
       {/* <UserCard
@@ -16,7 +23,14 @@ function App() {
       />
       <UseState /> */}
       {/* <ArrayState /> */}
-      <CounterWithNameProject />
+      {/* <CounterWithNameProject /> */}
+      {/* <div>
+        <button onClick={() => setShow(currentShow => !currentShow)}>
+          Show/Hide
+        </button>
+        {childComponent}
+      </div> */}
+      <FetchDataToAPI />
     </>
   )
 }
