@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 
 export default function RenderingLIst() {
   const users = [
@@ -17,11 +17,11 @@ export default function RenderingLIst() {
       <button onClick={addItem}>Add Item</button>
       {items.map(item => {
         return (
-          <div key={item.id}>
-            {item.name}
+          <Fragment key={item.id}>
+            <div>{item.name}</div>
             <input type='text' />
-          </div>
-        )
+          </Fragment>
+        ) //and Fragment
       })}
     </>
   )
