@@ -13,7 +13,7 @@ export default function UserListProject() {
       signal: controller.signal,
     })
       .then(res => res.json())
-      .then(setUsers)
+      .then(users => setUsers(users))
       .finally(() => setLoading(false))
 
     return () => controller.abort()
@@ -24,7 +24,7 @@ export default function UserListProject() {
       <h1>User List</h1>
       <ul>
         {loading ? (
-          <h2>Loading</h2>
+          <h2>Loading...</h2>
         ) : (
           users.map(user => <User name={user.name} key={user.id} />)
         )}
