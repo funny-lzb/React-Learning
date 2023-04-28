@@ -2,21 +2,15 @@ import { useState, useEffect } from 'react'
 import User from './User'
 
 export default function UserListProject() {
-  const [loading, setLoading] = useState(true)
   const [users, setUsers] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     setLoading(true)
-
-    const controller = new AbortController()
-    fetch('https://jsonplaceholder.typicode.com/users', {
-      signal: controller.signal,
-    })
+    fetch('https://jsonplaceholder.typicode.com/users')
       .then(res => res.json())
       .then(users => setUsers(users))
       .finally(() => setLoading(false))
-
-    return () => controller.abort()
   }, [])
 
   return (
@@ -26,7 +20,7 @@ export default function UserListProject() {
         {loading ? (
           <h2>Loading...</h2>
         ) : (
-          users.map(user => <User name={user.name} key={user.id} />)
+          users.map(user => <User key={user.id} name={user.name} />)
         )}
       </ul>
     </>
