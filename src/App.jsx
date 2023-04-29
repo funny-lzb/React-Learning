@@ -8,6 +8,7 @@ import { Child } from './component/component lifecycle/Child'
 import FetchDataToAPI from './component/component lifecycle/FetchDataToAPI'
 import RenderingLIst from './AdvancedComponent/RenderingLIst'
 import UserListProject from './AdvancedComponent/UserListProject'
+import SimpleTodoList from './AdvancedComponent/SimpleTodoList'
 import { useState } from 'react'
 
 function App() {
@@ -34,7 +35,8 @@ function App() {
       </div> */}
       {/* <FetchDataToAPI /> */}
       {/* <RenderingLIst /> */}
-      <UserListProject />
+      {/* <UserListProject /> */}
+      <SimpleTodoList />
     </>
   )
 }

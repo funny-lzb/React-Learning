@@ -20,7 +20,7 @@ export default function UserListProject() {
         {loading ? (
           <h2>Loading...</h2>
         ) : (
-          users.map(user => <User key={user.id} name={user.name} />)
+          users.map(user => <User key={user.id} {...user}/>)
         )}
       </ul>
     </>
