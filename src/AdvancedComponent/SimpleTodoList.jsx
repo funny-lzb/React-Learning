@@ -1,5 +1,5 @@
 import './simpletodolist.css'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import TodoItem from './TodoItem'
 /* 
 Todo:
@@ -10,6 +10,7 @@ Todo:
 export default function SimpleTodoList() {
   const [inputValue, setInputValue] = useState('')
   const [todos, setTodos] = useState([])
+  const inputRef = useRef()
 
   // 1.点击按钮，可以拿到表单value的值，并追加到ul下
   // => 通过设一个state拿到表单的value，再设一个数组，对它映射出UI
@@ -22,6 +23,7 @@ export default function SimpleTodoList() {
     ])
 
     setInputValue('')
+    inputRef.current.focus()
   }
 
   // 2.点击Todo勾选，可以通过状态让这个Todo变成checked
@@ -59,6 +61,7 @@ export default function SimpleTodoList() {
         <input
           type='text'
           id='todo-input'
+          ref={inputRef}
           value={inputValue}
           onChange={e => setInputValue(e.target.value)}
         />
