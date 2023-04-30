@@ -2,8 +2,8 @@ export default function TodoItem({
   id,
   value,
   completed,
-  toggleComplete,
-  handleDelete,
+  toggleChecked,
+  deleteTodo,
 }) {
   return (
     <>
@@ -12,12 +12,12 @@ export default function TodoItem({
           <input
             type='checkbox'
             checked={completed}
-            onChange={e => toggleComplete(id, e.target.checked)}
+            onChange={e => toggleChecked(id, e.target.checked)}
             data-list-item-checkbox
           />
           <span data-list-item-text>{value}</span>
         </label>
-        <button data-button-delete onClick={() => handleDelete(id)}>
+        <button data-button-delete onClick={() => deleteTodo(id)}>
           Delete
         </button>
       </li>
