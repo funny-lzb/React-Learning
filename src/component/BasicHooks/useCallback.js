@@ -1,11 +1,9 @@
 /* 
 useMemo和useCallback区别：
-    1.useMemo是缓存(函数)返回值，useCallback是缓存函数
+    1.useMemo是缓存{函数返回值(数组/对象)}地址不变，useCallback是缓存{函数}地址不变
 
     作用：
-        和useMemo一样，useCallback用来保证引用相等性
-        useMemo用来保存对象/数组的内存地址和上一次一样，不变
-        而useCallback用来保存函数，确保组件Re-render时，保证依赖项“值”不变
+        useCallback是保证回调{函数}地址不变
 
     总结：
     什么时候用useMemo，什么时候用useCallback？

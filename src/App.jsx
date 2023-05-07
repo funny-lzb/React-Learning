@@ -11,6 +11,7 @@ import UserListProject from './AdvancedComponent/UserListProject'
 import SimpleTodoList from './AdvancedComponent/SimpleTodoList'
 import Ref from './component/BasicHooks/Ref'
 import FetchProject from './component/BasicHooks/useFetchProject'
+import ArrayProject from './component/BasicHooks/ArrayProject'
 import { useState } from 'react'
 
 function App() {
@@ -40,7 +41,8 @@ function App() {
       {/* <UserListProject /> */}
       {/* <SimpleTodoList /> */}
       {/* <Ref /> */}
-      <FetchProject />
+      {/* <FetchProject /> */}
+      <ArrayProject />
     </>
   )
 }
