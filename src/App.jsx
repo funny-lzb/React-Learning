@@ -12,6 +12,7 @@ import SimpleTodoList from './AdvancedComponent/SimpleTodoList'
 import Ref from './component/BasicHooks/Ref'
 import FetchProject from './component/BasicHooks/useFetchProject'
 import ArrayProject from './component/BasicHooks/ArrayProject'
+import LocalStorageProject from './component/BasicHooks/LocalStorageProject'
 import { useState } from 'react'
 
 function App() {
@@ -42,7 +43,8 @@ function App() {
       {/* <SimpleTodoList /> */}
       {/* <Ref /> */}
       {/* <FetchProject /> */}
-      <ArrayProject />
+      {/* <ArrayProject /> */}
+      <LocalStorageProject />
     </>
   )
 }
