@@ -13,6 +13,7 @@ import Ref from './component/BasicHooks/Ref'
 import FetchProject from './component/BasicHooks/useFetchProject'
 import ArrayProject from './component/BasicHooks/ArrayProject'
 import LocalStorageProject from './component/BasicHooks/LocalStorageProject'
+import StateVsuseRef from './component/FormBasic/StateVsuseRef'
 import { useState } from 'react'
 
 function App() {
@@ -44,7 +45,8 @@ function App() {
       {/* <Ref /> */}
       {/* <FetchProject /> */}
       {/* <ArrayProject /> */}
-      <LocalStorageProject />
+      {/* <LocalStorageProject /> */}
+      <StateVsuseRef />
     </>
   )
 }
