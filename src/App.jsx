@@ -14,6 +14,7 @@ import FetchProject from './component/BasicHooks/useFetchProject'
 import ArrayProject from './component/BasicHooks/ArrayProject'
 import LocalStorageProject from './component/BasicHooks/LocalStorageProject'
 import StateVsuseRef from './component/FormBasic/StateVsuseRef'
+import FormValid from './component/FormBasic/FormValid'
 import { useState } from 'react'
 
 function App() {
@@ -46,7 +47,8 @@ function App() {
       {/* <FetchProject /> */}
       {/* <ArrayProject /> */}
       {/* <LocalStorageProject /> */}
-      <StateVsuseRef />
+      {/* <StateVsuseRef /> */}
+      <FormValid />
     </>
   )
 }
