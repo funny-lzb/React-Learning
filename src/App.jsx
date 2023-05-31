@@ -15,6 +15,7 @@ import ArrayProject from './component/BasicHooks/ArrayProject'
 import LocalStorageProject from './component/BasicHooks/LocalStorageProject'
 import StateVsuseRef from './component/FormBasic/StateVsuseRef'
 import FormValid from './component/FormBasic/FormValid'
+import FormValidRef from './component/FormBasic/FormValidRef'
 import { useState } from 'react'
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
       {/* <LocalStorageProject /> */}
       {/* <StateVsuseRef /> */}
       <FormValid />
+      {/* <FormValidRef /> */}
     </>
   )
 }

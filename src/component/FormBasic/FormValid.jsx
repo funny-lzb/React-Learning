@@ -1,35 +1,46 @@
-import { useRef, useState } from 'react'
-import { useHandleBlur } from '../../hooks/useHandleBlur'
+import { useState } from 'react'
 import '../../css/formvalid.css'
+import { checkEmail, checkPassword } from './validators'
 
-/* TodoList:
-    1.当鼠标离开Email时，如果表单为空/不以@webdevsimplified.com结尾
-    => 则给这个表单添加error类 + 表单下面有提示
-    2.密码不能为空，大于等于10字符，必须包含小写字母，必须包含大写字母，必须包括一个数字
-    3.提交表单，如果emailIsValid和passwordIsValid都为true，则提示Success
+/* Advanced Code:
+  1.错误存在，则渲染错误提示；否则，不渲染( && )
+  
+  核心思想：在提交表单时，把你的错误放到一个空数组里，最后验证时把它们用，拼在一起
+
+  2.第一次提交表单后，之后每次type都要更新错误数组
+    =>错误数组一开始为空，第一次提交表单后，错误数组伴随着email/password的改变而改变
+
+    核心：落脚在错误信息这个状态上，所有的一切都由这个控制
 */
 
 export default function FormValid() {
-  const [emailValue, setEmailValue] = useState('')
-  const [emailIsValid, setEmailIsValid] = useState(true)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-  const [passwordValue, setPasswordValue] = useState('')
-  const [passwordIsValid, setPasswordIsValid] = useState(true)
+  // const [emailErrors, setEmailErrors] = useState([])
+  // const [passwordErrors, setPasswordErrors] = useState([])
 
-  const emailRef = useRef()
-  const passwordRef = useRef()
+  const [isFirstSubmit, setIsFirstSubmit] = useState(true)
+  const emailErrors = isFirstSubmit ? [] : checkEmail(email)
+  const passwordErrors = isFirstSubmit ? [] : checkPassword(password)
 
-  function hanleSubmit(e) {
+  function checkErrors(e) {
     e.preventDefault()
+    setIsFirstSubmit(false)
 
-    if (emailIsValid && passwordIsValid) {
-      window.alert('Success')
+    const emailResults = checkEmail(email)
+    const passwordResults = checkPassword(password) //检查
+
+    // setEmailErrors(emailResults)
+    // setPasswordErrors(passwordResults) //更新错误
+    if (emailResults.length === 0 && passwordResults.length === 0) {
+      alert('Success')
     }
   }
 
   return (
-    <form className='form' onSubmit={hanleSubmit}>
-      <div ref={emailRef} className='form-group'>
+    <form className='form' onSubmit={checkErrors}>
+      <div className={`form-group ${emailErrors.length && 'error'}`}>
         <label className='label' htmlFor='email'>
           Email
         </label>
@@ -37,49 +48,27 @@ export default function FormValid() {
           className='input'
           type='email'
           id='email'
-          value={emailValue}
-          onChange={e => setEmailValue(e.target.value)}
-          onBlur={() =>
-            useHandleBlur(
-              emailRef,
-              setEmailIsValid,
-              emailValue !== '' && emailValue.endsWith('@webdevsimplified.com')
-            )
-          }
+          value={email}
+          onChange={e => setEmail(e.target.value)}
         />
-        <div
-          className='msg'
-          style={{
-            visibility: emailIsValid ? 'hidden' : 'visible',
-          }}
-        >
-          Must end in @webdevsimplified.com and can't be empty
-        </div>
+        {<div className='msg'>{emailErrors.join(',')}</div>}
       </div>
-      <div ref={passwordRef} className='form-group'>
+      <div className={`form-group ${passwordErrors.length && 'error'}`}>
         <label className='label' htmlFor='password'>
           Password
         </label>
         <input
           className='input'
-          value={passwordValue}
           type='password'
           id='password'
-          onChange={e => setPasswordValue(e.target.value)}
-          onBlur={() =>
-            useHandleBlur(
-              passwordRef,
-              setPasswordIsValid,
-              passwordValue !== '' &&
-                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{10,}$/.test(passwordValue)
-            )
-          }
+          value={password}
+          onChange={e => setPassword(e.target.value)}
         />
+        {<div className='msg'>{passwordErrors.join(',')}</div>}
       </div>
       <button className='btn' type='submit'>
         Submit
       </button>
-      {}
     </form>
   )
 }
