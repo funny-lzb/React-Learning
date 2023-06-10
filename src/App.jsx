@@ -16,6 +16,7 @@ import LocalStorageProject from './component/BasicHooks/LocalStorageProject'
 import StateVsuseRef from './component/FormBasic/StateVsuseRef'
 import FormValid from './component/FormBasic/FormValid'
 import FormValidRef from './component/FormBasic/FormValidRef'
+import ReducerHook from './component/AdvancedStatefulComponent/ReducerHook'
 import { useState } from 'react'
 
 function App() {
@@ -45,12 +46,13 @@ function App() {
       {/* <UserListProject /> */}
       {/* <SimpleTodoList /> */}
       {/* <Ref /> */}
-      {/* <FetchProject /> */}
+      <FetchProject />
       {/* <ArrayProject /> */}
       {/* <LocalStorageProject /> */}
       {/* <StateVsuseRef /> */}
-      <FormValid />
+      {/* <FormValid /> */}
       {/* <FormValidRef /> */}
+      {/* <ReducerHook /> */}
     </>
   )
 }
