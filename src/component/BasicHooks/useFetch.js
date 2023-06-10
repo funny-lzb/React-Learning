@@ -13,13 +13,16 @@ function reducer(state, { type, payload }) {
         isLoading: true,
         isError: false,
       }
+
     case ACTIONS.FETCH_SUCCESS:
       return { data: payload.data, isLoading: false, isError: false }
+
     case ACTIONS.FETCH_ERROR:
       return {
         isLoading: false,
         isError: true,
       }
+
     default:
       return state
   }

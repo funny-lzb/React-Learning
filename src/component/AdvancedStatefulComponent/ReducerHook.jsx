@@ -1,5 +1,7 @@
 import { useReducer } from 'react'
 
+// useReducer其实是把状态收集起来，对应不同情况去setState
+
 const ACTIONS = {
   DECREMENT: 'DECREMENT',
   INCREMENT: 'INCREMENT',
